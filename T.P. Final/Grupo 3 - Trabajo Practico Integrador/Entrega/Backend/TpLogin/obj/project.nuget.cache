@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nOQLG5ne8lYcxNhCkfkRaPTQ+5tjM/et7pP+SpZ6Fajf/MEAMjRnK3Kusa3kpiXIMyDDpQndLJb68BRsJlvMbA==",
+  "dgSpecHash": "rLJ0No1S+0sTbaz21XJvQ5fiAmnxhLnMtfN6YwpK3KwBaURXQeDNvCIc5mZ3kHyrrrUSD8lsx1VgiikWM1iJ6w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Agustin\\source\\repos\\T.P. Final\\Grupo 3 - Trabajo Practico Integrador\\Entrega\\Backend\\TpLogin\\TpLogin.csproj",
+  "projectFilePath": "C:\\Users\\Agustin\\source\\repos\\GithubTPDAW\\TPDAW\\T.P. Final\\Grupo 3 - Trabajo Practico Integrador\\Entrega\\Backend\\TpLogin\\TpLogin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Agustin\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Agustin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

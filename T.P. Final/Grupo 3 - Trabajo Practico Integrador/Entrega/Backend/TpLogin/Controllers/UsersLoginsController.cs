@@ -206,6 +206,38 @@ namespace TpLogin.Controllers
             return Ok(new { message = "Usuario editado" });
 
         }
+        //[Authorize(Roles = "Admin, User")]
+        [HttpGet("GetAllArticulos")]
+        public async Task<ActionResult<IEnumerable<ArticuloDTO>>> GetAllArticulos()
+        {
+            return await _context.Articulo.ProjectTo<ArticuloDTO>(_mapper.ConfigurationProvider).Where(pr => pr.Name != "")
+           .ToListAsync(); ;
+        }
+
+        //[Authorize(Roles = "Admin")]
+        [HttpPost("createArticulo")]
+        public IActionResult CreateArticulo(string name, string description)
+        {
+            //var name = Request.Form["Name"];
+            //var description = Request.Form["Description"];
+
+            Articulo arti = new Articulo();
+
+            arti.Name = name;
+            arti.Description = description;
+            
+
+
+
+
+            var newArti = _context.Articulo.Add(arti);
+            _context.SaveChanges();
+
+
+            return Ok(new { message = "Articulo creado" });
+
+        }
+
         //[HttpPost("createFirstUser")]
         //public IActionResult CreateFirstUser()
         //{

@@ -21,6 +21,7 @@ namespace TpLogin.Models
         public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
         public virtual DbSet<UserPrivilige> UserPriviliges { get; set; }
         public virtual DbSet<UsersLogin> UsersLogins { get; set; }
+        public virtual DbSet<Articulo> Articulo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -100,7 +101,21 @@ namespace TpLogin.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
             });
+            modelBuilder.Entity<Articulo>(entity =>
+            {
+                entity.ToTable("Articulo");
+                entity.Property(e => e.ID).HasColumnName("ID");
 
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
             OnModelCreatingPartial(modelBuilder);
         }
 

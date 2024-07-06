@@ -13,6 +13,8 @@ namespace TpLogin.DTOs
         {
             CreateMap<UsersLogin, UsersLoginDTO>()
                     .ReverseMap();
+            CreateMap<Articulo, ArticuloDTO>()
+                .ReverseMap();
         }
     }
 }

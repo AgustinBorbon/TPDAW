@@ -7415,11 +7415,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Agustin\\source\\repos\\T.P. Final\\Grupo 3 - Trabajo Practico Integrador\\Entrega\\Backend\\TpLogin\\TpLogin.csproj",
+      "projectUniqueName": "C:\\Users\\Agustin\\source\\repos\\GithubTPDAW\\TPDAW\\T.P. Final\\Grupo 3 - Trabajo Practico Integrador\\Entrega\\Backend\\TpLogin\\TpLogin.csproj",
       "projectName": "TpLogin",
-      "projectPath": "C:\\Users\\Agustin\\source\\repos\\T.P. Final\\Grupo 3 - Trabajo Practico Integrador\\Entrega\\Backend\\TpLogin\\TpLogin.csproj",
+      "projectPath": "C:\\Users\\Agustin\\source\\repos\\GithubTPDAW\\TPDAW\\T.P. Final\\Grupo 3 - Trabajo Practico Integrador\\Entrega\\Backend\\TpLogin\\TpLogin.csproj",
       "packagesPath": "C:\\Users\\Agustin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Agustin\\source\\repos\\T.P. Final\\Grupo 3 - Trabajo Practico Integrador\\Entrega\\Backend\\TpLogin\\obj\\",
+      "outputPath": "C:\\Users\\Agustin\\source\\repos\\GithubTPDAW\\TPDAW\\T.P. Final\\Grupo 3 - Trabajo Practico Integrador\\Entrega\\Backend\\TpLogin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
