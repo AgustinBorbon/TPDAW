@@ -169,51 +169,7 @@ function getall() {
 
 }
 
-// function getallartic() {
-//     var urlgetAll = 'https://localhost:44344/api/UsersLogins/GetAllArticulos';
-//     var tokensaved = localStorage.getItem("token");
 
-//     fetch(urlgetAll, {
-//             method: 'GET',
-//             headers: {
-//                 'Authorization': 'Bearer ' + tokensaved
-//             }
-//         })
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log('Data from GetAllArticulos:', data); // Debugging line
-//             document.getElementById('result').innerHTML = '';
-
-//             if (Array.isArray(data) && data.length > 0) {
-//                 let tableContent = '<table class="table"><tr><th>Articulo</th><th>Description</th></tr>';
-//                 data.forEach(item => {
-//                     if (item.Articulo && item.Articulo.length > 0) {
-//                         tableContent += `
-//                         <tr>
-//                             <td>${item.Name}</td>
-//                             <td>Nombre</td>
-//                             <td class="intercambiar" OnClick="Update(${item.id}, ${item.Articulo[0].ID})">
-//                                 <img src="images/editar.png" alt="editar" />
-//                             </td>
-//                             <td class="borrar" OnClick="Delete(${item.id})">
-//                                 <img src="images/borrar.png" alt="borrar" />
-//                             </td>
-//                         </tr>
-//                     `;
-//                     }
-//                 });
-//                 tableContent += '</table>';
-//                 document.getElementById('container').innerHTML = tableContent;
-//                 document.getElementById('container').style.backgroundColor = '#28d';
-//                 document.getElementById('container').style.border = 'solid 10px';
-//             } else {
-//                 document.getElementById('container').innerHTML = '<p>No articles found</p>';
-//             }
-//         })
-//         .catch(error => {
-//             console.error('Error:', error);
-//         });
-// }
 function getallartic() {
     var urlgetAll = 'https://localhost:44344/api/UsersLogins/GetAllArticulos';
     var tokensaved = localStorage.getItem("token");
@@ -256,5 +212,74 @@ function getallartic() {
         })
         .catch(error => {
             console.error('Error:', error);
+        });
+}
+
+function createartic() { // Aca se utiliza el getelement o se lo pasa como parametro?
+    var urlCreate = 'https://localhost:44344/api/UsersLogins/createArticulo'
+    var Name = document.getElementById('name').value
+    var description = document.getElementById('description').value
+    var tokensaved = localStorage.getItem("token")
+
+
+
+    let formData = new FormData();
+    formData.append('name', Name);
+    formData.append('description', description);
+
+    fetch(urlCreate, {
+            method: "POST",
+            headers: {
+                'Authorization': 'Bearer ' + tokensaved
+            },
+            body: formData
+        }).then(Response => Response.json())
+        .then(
+            data => {
+                document.getElementById('result').innerHTML = 'Articulo creado';
+            }
+        )
+        .catch((error) => {
+            document.getElementById('result').innerText = 'Usuario sin permisos';
+        });
+}
+
+function createartic2() {
+    var urlCreate = 'https://localhost:44344/api/UsersLogins/CreateArticulo';
+    var userName = document.getElementById('name').value;
+    var description = document.getElementById('description').value;
+    var tokensaved = localStorage.getItem("token");
+
+    console.log("User Name: ", userName); // Para verificar que los valores están siendo obtenidos
+    console.log("Description: ", description); // Para verificar que los valores están siendo obtenidos
+
+    let articleData = {
+        name: userName,
+        description: description
+    };
+
+    console.log("Article Data: ", articleData); // Para verificar que los datos están siendo formateados correctamente
+
+    fetch(urlCreate, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + tokensaved
+            },
+            body: JSON.stringify(articleData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Articulo creado:', data);
+            document.getElementById('result').innerHTML = 'Articulo creado';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('result').innerHTML = 'Error al crear el articulo';
         });
 }

@@ -116,7 +116,7 @@ namespace TpLogin.Controllers
             return Convert.ToBase64String(byteHash);
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Usuario")]
         [HttpPost("Post")]
 
         public string Post()
@@ -128,7 +128,7 @@ namespace TpLogin.Controllers
 
         }
 
-        [Authorize(Roles = "Admin, User")]
+        [Authorize(Roles = "Admin, Usuario")]
         [HttpGet("GetAllUsers")]
         public async Task<ActionResult<IEnumerable<UsersLoginDTO>>> GetAll()
         {
@@ -206,7 +206,7 @@ namespace TpLogin.Controllers
             return Ok(new { message = "Usuario editado" });
 
         }
-        //[Authorize(Roles = "Admin, User")]
+        [Authorize(Roles = "Admin, Usuario")]
         [HttpGet("GetAllArticulos")]
         public async Task<ActionResult<IEnumerable<ArticuloDTO>>> GetAllArticulos()
         {
@@ -214,12 +214,12 @@ namespace TpLogin.Controllers
            .ToListAsync(); ;
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost("createArticulo")]
-        public IActionResult CreateArticulo(string name, string description)
+        public IActionResult CreateArticulo()
         {
-            //var name = Request.Form["Name"];
-            //var description = Request.Form["Description"];
+            var name = Request.Form["Name"];
+            var description = Request.Form["Description"];
 
             Articulo arti = new Articulo();
 
@@ -270,102 +270,6 @@ namespace TpLogin.Controllers
         //    return Ok(new { message = "Primer usuario creado" });
         //}
 
-        /*
-        // GET: api/UsersLogins
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<UsersLoginDTO>>> GetUsersLogins()
-        {
-            //var entities = _context.UsersLogins.ToList();
-            //return _mapper.Map<UsersLoginDTO[]>(entities);
-
-
-            
-
-            return await _context.UsersLogins.ProjectTo<UsersLoginDTO>(_mapper.ConfigurationProvider)
-           .ToListAsync();
-
-            //return await _context.UsersLogins.ToListAsync();
-        }
-
         
-        // GET: api/UsersLogins/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UsersLogin>> GetUsersLogin(int id)
-        {
-            var usersLogin = await _context.UsersLogins.FindAsync(id);
-
-            if (usersLogin == null)
-            {
-                return NotFound();
-            }
-
-            return usersLogin;
-        }
-
-        // PUT: api/UsersLogins/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsersLogin(int id, UsersLogin usersLogin)
-        {
-            if (id != usersLogin.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(usersLogin).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UsersLoginExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/UsersLogins
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-
-        
-        [HttpPost]
-        public async Task<ActionResult<UsersLogin>> PostUsersLogin(UsersLogin usersLogin)
-        {
-            _context.UsersLogins.Add(usersLogin);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetUsersLogin", new { id = usersLogin.Id }, usersLogin);
-        }
-        
-        // DELETE: api/UsersLogins/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUsersLogin(int id)
-        {
-            var usersLogin = await _context.UsersLogins.FindAsync(id);
-            if (usersLogin == null)
-            {
-                return NotFound();
-            }
-
-            _context.UsersLogins.Remove(usersLogin);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool UsersLoginExists(int id)
-        {
-            return _context.UsersLogins.Any(e => e.Id == id);
-        }
-        */
     }
 }
