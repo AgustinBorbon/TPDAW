@@ -13,9 +13,10 @@ div {
 }
 
 .container {
+    border-radius: 8px;
     background-color: #444;
     margin: auto;
-    height: 420px;
+    height: auto;
     width: 630px;
     color: #ddd;
 }
@@ -35,7 +36,6 @@ div {
 }
 
 .form-group {
-    border: solid 5px #555;
     padding: 10px;
 }
 

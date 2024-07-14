@@ -17,14 +17,6 @@ body {
     margin-bottom: 0;
 }
 
-.login-triangle {
-    width: 0;
-    margin-right: auto;
-    margin-left: auto;
-    border: 12px solid transparent;
-    border-bottom-color: #555;
-}
-
 .login-header {
     background: #555;
     padding: 20px;
@@ -36,6 +28,7 @@ body {
 }
 
 .login-container {
+    border-radius: 0px 0px 8px 8px;
     background: #444;
     padding: 12px;
 }
@@ -45,10 +38,28 @@ body {
 }
 
 .login input[type="email"],
+.login input[type="text"],
 .login input[type="password"] {
+    border-radius: 8px;
     box-sizing: border-box;
     display: block;
     width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+    background: #555;
+    border-color: #888;
+    color: #ddd;
+}
+
+input[type="text"],
+input[type="password"] {
+        border-radius: 8px;
+    box-sizing: border-box;
+    width: 300px;
     border-width: 1px;
     border-style: solid;
     padding: 16px;
@@ -65,7 +76,23 @@ body {
     border-color: #aaa;
 }
 
+button[type="submit"],
+input[type="button-volver"] {
+    text-align: center;
+    border-radius: 8px;
+    height: 40px;
+    width: 120px;
+    background: #555;
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 .login input[type="button"] {
+    border-radius: 8px;
+    height: 40px;
+    width: 100px;
     background: #555;
     border-color: transparent;
     color: #fff;

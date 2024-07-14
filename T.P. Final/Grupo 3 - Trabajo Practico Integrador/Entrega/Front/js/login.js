@@ -51,6 +51,7 @@ function create() { // Aca se utiliza el getelement o se lo pasa como parametro?
     formData.append('rol', rol);
     formData.append('userName', userName);
     formData.append('password', password);
+    debugger
 
     fetch(urlCreate, {
             method: "POST",
