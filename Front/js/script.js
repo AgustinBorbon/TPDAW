@@ -1,12 +1,8 @@
 const URL = "https://localhost:44344/api/UsersLogins?userName=fclarat&password=test"
-// Faltarian agregar mas URL de los endpoints para cada metodo
+
 const myHeaders = new Headers();
 
-//Login del usuario
 function login() {
-    // Llamas a la API con un user y PW y la API te devuelve un token
-    debugger
-    console.log("login login.js")
     var username = document.getElementById('nombre').value
     var password = document.getElementById('password').value
     var urlLogin = 'https://localhost:44344/api/UsersLogins?userName=' + username + '&password=' + password
@@ -30,9 +26,7 @@ var tokensaved = localStorage.getItem("token")
 myHeaders.append('Content-Type', 'application/json');
 myHeaders.append('Authorization', 'tokensaved');
 
-//Crear Usuario
-function create() { // Aca se utiliza el getelement o se lo pasa como parametro?
-    debugger
+function create() {
     var urlCreate = 'https://localhost:44344/api/UsersLogins/createUser'
     var rol = document.getElementById('rol-names').value
     var userName = document.getElementById('nombre').value
@@ -67,9 +61,7 @@ function create() { // Aca se utiliza el getelement o se lo pasa como parametro?
         });
 }
 
-//Actualizar Usuario
 function Update(id, rol) {
-    debugger
     var urlUpdate = 'https://localhost:44344/api/UsersLogins/editUser/' + id
     var tokensaved = localStorage.getItem("token")
 
@@ -99,9 +91,7 @@ function Update(id, rol) {
         });
 }
 
-//Eliminar Usuario
 function Delete(id) {
-    debugger
     var urlDelete = 'https://localhost:44344/api/UsersLogins/deleteUser/' + id
     var tokensaved = localStorage.getItem("token")
 
@@ -121,9 +111,7 @@ function Delete(id) {
         });
 }
 
-//Listar Usuarios
 function getall() {
-    debugger
     var urlgetAll = 'https://localhost:44344/api/UsersLogins/GetAllUsers'
     var tokensaved = localStorage.getItem("token")
 
@@ -160,7 +148,6 @@ function getall() {
 }
 
 function getallartic() {
-    debugger
     var urlgetAll = 'https://localhost:44344/api/UsersLogins/GetAllArticulos';
     var tokensaved = localStorage.getItem("token");
 
@@ -172,7 +159,6 @@ function getallartic() {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Data from GetAllArticulos:', data); // Debugging line
             document.getElementById('result').innerHTML = '';
             if (Array.isArray(data) && data.length > 0) {
                 let tableContent = '<table class="table"><tr><th>ID</th><th>Articulo</th><th>Description</th><th>Editar</th><th>Borrar</th></tr>';
@@ -204,8 +190,7 @@ function getallartic() {
         });
 }
 
-function createartic() { // Aca se utiliza el getelement o se lo pasa como parametro?
-    debugger
+function createartic() {
     var urlCreate = 'https://localhost:44344/api/UsersLogins/createArticulo'
     var Name = document.getElementById('name').value
     var description = document.getElementById('description').value
